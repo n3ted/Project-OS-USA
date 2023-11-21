@@ -8,6 +8,7 @@ ipykernel = "*"
 seaborn = "*"
 matplotlib = "*"
 plotly-express = "*"
+bash = "*"
 
 [dev-packages]
 
