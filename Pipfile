@@ -9,6 +9,8 @@ seaborn = "*"
 matplotlib = "*"
 plotly-express = "*"
 bash = "*"
+nbformat = "*"
+plotly = "*"
 
 [dev-packages]
 
