@@ -1,1 +1,1 @@
-web: gunicorn dash-uppgift-Johan:app.server
+web: gunicorn DashApp:server
