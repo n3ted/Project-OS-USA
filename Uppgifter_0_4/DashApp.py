@@ -163,6 +163,8 @@ fig = px.bar(melted_data, x='Sport', y='Count', color='Gender',
 fig.show()
 # Create a Dash app and layout
 app = Dash(__name__)
+server = app.server
+
 app.index_string = '''
 <!DOCTYPE html>
 <html>
