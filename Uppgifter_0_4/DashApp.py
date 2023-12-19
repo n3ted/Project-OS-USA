@@ -33,7 +33,6 @@ medal_counts = usa_athletes[usa_athletes['Medal'].notnull()]['Sport'].value_coun
 medal_count_fig = px.bar(medal_counts.head(10), orientation='h', 
 labels={'value':'Antal Medaljer', 'index':'Sport'},
 title='Topp 10 Sporter för USA efter Antal Medaljer')
-medal_count_fig.show()
 # Visualisera Antal Medaljer per Olympiskt Spel
 
 # Räkna medaljer per år
@@ -43,14 +42,13 @@ medals_per_olympics = usa_athletes[usa_athletes['Medal'].notnull()].groupby(['Ye
 medals_per_olympics_fig = px.bar(medals_per_olympics, barmode='stack',
 labels={'value':'Antal Medaljer', 'Year':'År'},
  title='Antal Medaljer per Olympiskt Spel för USA')
-medals_per_olympics_fig.show()
+
 # Skapa Histogram över Åldrar på Idrottare
 
 # Skapa interaktivt histogram 
 age_histogram_fig = px.histogram(usa_athletes, x='Age', nbins=30,
     labels={'Age':'Ålder'},
     title='Histogram över Åldrar på Amerikanska Idrottare i OS')
-age_histogram_fig.show()
 
 ### Data from uppgift 2
 choosen_sports = ['Athletics', 'Swimming', 'Gymnastics']
@@ -101,20 +99,17 @@ def visualize_age_distribution(sport, data):
 # Create and display graphs for 'Athletics'
 medal_distribution_fig = visualize_medal_distribution('Athletics', sport_data)
 age_distribution_fig = visualize_age_distribution('Athletics', sport_data)
-medal_distribution_fig.show()
-age_distribution_fig.show()
+
 
 # Create and display graphs for 'Swimming'
 medal_distribution_fig = visualize_medal_distribution('Swimming', sport_data)
 age_distribution_fig = visualize_age_distribution('Swimming', sport_data)
-medal_distribution_fig.show()
-age_distribution_fig.show()
 
 # Create and display graphs for 'Gymnastics'
 medal_distribution_fig = visualize_medal_distribution('Gymnastics', sport_data)
 age_distribution_fig = visualize_age_distribution('Gymnastics', sport_data)
-medal_distribution_fig.show()
-age_distribution_fig.show()
+
+
 def visualize_medal_distribution_years(sport, data):
     # Filter data for the selected sport and only rows with medals won
     sport_medals = data[(data['Sport'] == sport) & data['Medal'].notnull()]
@@ -139,15 +134,13 @@ def visualize_medal_distribution_years(sport, data):
 
 # Create and display graphs for 'Gymnastics'
 medal_distribution_years_fig = visualize_medal_distribution_years('Gymnastics', sport_data)
-medal_distribution_years_fig.show()
 
 # Create and display graphs for 'Swimming'
 medal_distribution_years_fig = visualize_medal_distribution_years('Swimming', sport_data)
-medal_distribution_years_fig.show()
 
 # Create and display graphs for 'Athletics'
 medal_distribution_years_fig = visualize_medal_distribution_years('Athletics', sport_data)
-medal_distribution_years_fig.show()
+
 #gruppera data efter sport och kön samt räkna antalet medaljer
 grouped_data = data_athletes.groupby(['Sport', 'Sex']).size().unstack().reset_index()
 
@@ -160,7 +153,7 @@ fig = px.bar(melted_data, x='Sport', y='Count', color='Gender',
              title='Gender differences in medal distribution for each sport',
              barmode='stack')
 
-fig.show()
+
 # Create a Dash app and layout
 app = Dash(__name__)
 server = app.server
